@@ -12,6 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from omniglue import omniglue_extract
+from . import omniglue_extract
 
 OmniGlue = omniglue_extract.OmniGlue

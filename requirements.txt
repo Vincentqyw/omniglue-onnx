@@ -2,6 +2,7 @@ matplotlib
 numpy
 opencv-python
 Pillow
-tensorflow
 torch
 gdown
+tf2onnx
+onnxruntime

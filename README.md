@@ -1,6 +1,6 @@
 <div align="center">
 
-# \[CVPR'24\] Code release for OmniGlue
+# \[CVPR'24\] Code release for OmniGlue(ONNX)
 
 [![Open in Spaces](https://huggingface.co/datasets/huggingface/badges/resolve/main/open-in-hf-spaces-sm.svg)](https://huggingface.co/spaces/qubvel-hf/omniglue)
 
