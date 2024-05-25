@@ -58,7 +58,6 @@ conda activate omniglue
 
 git clone https://github.com/google-research/omniglue.git
 cd omniglue
-pip install -e .
 ```
 
 Then, download the following models to `./models/`
