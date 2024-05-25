@@ -12,7 +12,7 @@ from functools import partial
 import math
 from typing import Callable, Sequence, Tuple, Union
 
-from third_party.dinov2 import dino_utils
+from . import dino_utils
 import torch
 from torch import nn
 from torch.nn.init import trunc_normal_

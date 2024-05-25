@@ -15,8 +15,11 @@
 """Wrapper for performing DINOv2 inference."""
 
 import cv2
+import sys
 import numpy as np
-from third_party.dinov2 import dino
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent.parent.parent / "third_party"))
+from dinov2 import dino
 
 from . import utils
 import torch
