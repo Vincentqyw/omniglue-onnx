@@ -23,3 +23,6 @@ poetry.lock
 
 # PyCharm
 .idea
+models/sp_v6*
+models/og_export*
+models/dinov2_vitb14_pretrain.pth

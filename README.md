@@ -2,7 +2,7 @@
 
 # \[CVPR'24\] Code release for OmniGlue(ONNX)
 
-[![Open in Spaces](https://huggingface.co/datasets/huggingface/badges/resolve/main/open-in-hf-spaces-sm.svg)](https://huggingface.co/spaces/qubvel-hf/omniglue)
+[![Open in Spaces](https://huggingface.co/datasets/huggingface/badges/resolve/main/open-in-hf-spaces-sm.svg)](https://huggingface.co/spaces/Realcat/image-matching-webui)
 
 <p align="center">
     <a href="https://hwjiang1510.github.io/">Hanwen Jiang</a>,
@@ -25,7 +25,7 @@
 
 <br>
 
-Official code release for the CVPR 2024 paper: **OmniGlue: Generalizable Feature
+ONNX-compatible release for the CVPR 2024 paper: **OmniGlue: Generalizable Feature
 Matching with Foundation Model Guidance**.
 
 ![og_diagram.png](res/og_diagram.png "og_diagram.png")
@@ -93,15 +93,15 @@ own python codebase.
 
 ```py
 
-import omniglue
+from src import omniglue
 
 image0 = ... # load images from file into np.array
 image1 = ...
 
 og = omniglue.OmniGlue(
-  og_export='./models/og_export',
-  sp_export='./models/sp_v6',
-  dino_export='./models/dinov2_vitb14_pretrain.pth',
+    og_export="./models/omniglue.onnx",
+    sp_export="./models/sp_v6.onnx",
+    dino_export="./models/dinov2_vitb14_pretrain.pth",
 )
 
 match_kp0s, match_kp1s, match_confidences = og.FindMatches(image0, image1)
@@ -125,6 +125,9 @@ python demo.py ./res/demo1.jpg ./res/demo2.jpg
 
 Expected output:
 ![demo_output.png](res/demo_output.png "demo_output.png")
+
+Comparison of Results Between TensorFlow and ONNX：
+![result_tf_and_onnx.png](res/result_tf_and_onnx.png "result_tf_and_onnx.png")
 
 
 ## Repo TODOs

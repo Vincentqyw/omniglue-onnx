@@ -18,10 +18,6 @@ import torch
 import numpy as np
 import onnxruntime
 
-# from omniglue import dino_extract
-# from omniglue import superpoint_extract
-# from omniglue import utils
-
 from . import dino_extract
 from . import superpoint_extract
 from . import utils
@@ -39,7 +35,9 @@ class OmniGlue:
         og_export: str,
         sp_export: str | None = None,
         dino_export: str | None = None,
+        max_keypoints: int = 2048,
     ) -> None:
+        self.max_keypoints = max_keypoints
         self.matcher = onnxruntime.InferenceSession(og_export)
         if sp_export is not None:
             self.sp_extract = superpoint_extract.SuperPointExtract(sp_export)
@@ -53,8 +51,8 @@ class OmniGlue:
         height0, width0 = image0.shape[:2]
         height1, width1 = image1.shape[:2]
         # TODO: numpy to torch inputs
-        sp_features0 = self.sp_extract(image0)
-        sp_features1 = self.sp_extract(image1)
+        sp_features0 = self.sp_extract(image0, num_features=self.max_keypoints)
+        sp_features1 = self.sp_extract(image1, num_features=self.max_keypoints)
         dino_features0 = self.dino_extract(image0)
         dino_features1 = self.dino_extract(image1)
         dino_descriptors0 = dino_extract.get_dino_descriptors(
