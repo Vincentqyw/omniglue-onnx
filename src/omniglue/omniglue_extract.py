@@ -46,13 +46,18 @@ class OmniGlue:
                 dino_export, feature_layer=1
             )
 
-    def FindMatches(self, image0: np.ndarray, image1: np.ndarray):
+    def FindMatches(
+        self,
+        image0: np.ndarray,
+        image1: np.ndarray,
+        max_keypoints: int = 2048,
+    ):
         """TODO(omniglue): docstring."""
         height0, width0 = image0.shape[:2]
         height1, width1 = image1.shape[:2]
         # TODO: numpy to torch inputs
-        sp_features0 = self.sp_extract(image0, num_features=self.max_keypoints)
-        sp_features1 = self.sp_extract(image1, num_features=self.max_keypoints)
+        sp_features0 = self.sp_extract(image0, num_features=max_keypoints)
+        sp_features1 = self.sp_extract(image1, num_features=max_keypoints)
         dino_features0 = self.dino_extract(image0)
         dino_features1 = self.dino_extract(image1)
         dino_descriptors0 = dino_extract.get_dino_descriptors(
