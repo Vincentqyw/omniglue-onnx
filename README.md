@@ -103,7 +103,7 @@ og = omniglue.OmniGlue(
     dino_export="./models/dinov2_vitb14_pretrain.pth",
 )
 
-match_kp0s, match_kp1s, match_confidences = og.FindMatches(image0, image1)
+match_kp0s, match_kp1s, match_confidences = og.FindMatches(image0, image1, max_keypoints=1024)
 # Output:
 #   match_kp0: (N, 2) array of (x,y) coordinates in image0.
 #   match_kp1: (N, 2) array of (x,y) coordinates in image1.
