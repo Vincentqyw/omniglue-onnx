@@ -35,7 +35,7 @@ class OmniGlue:
         og_export: str,
         sp_export: str | None = None,
         dino_export: str | None = None,
-        max_keypoints: int = 2048,
+        max_keypoints: int = 1024,
     ) -> None:
         self.max_keypoints = max_keypoints
         self.matcher = onnxruntime.InferenceSession(og_export)
@@ -50,7 +50,7 @@ class OmniGlue:
         self,
         image0: np.ndarray,
         image1: np.ndarray,
-        max_keypoints: int = 2048,
+        max_keypoints: int = 1024,
     ):
         """TODO(omniglue): docstring."""
         height0, width0 = image0.shape[:2]
