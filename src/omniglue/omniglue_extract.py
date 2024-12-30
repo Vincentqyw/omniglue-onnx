@@ -33,8 +33,8 @@ class OmniGlue:
     def __init__(
         self,
         og_export: str,
-        sp_export: str | None = None,
-        dino_export: str | None = None,
+        sp_export: str = None,
+        dino_export: str = None,
         max_keypoints: int = 1024,
     ) -> None:
         self.max_keypoints = max_keypoints
